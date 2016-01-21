@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react/addons');
+var moment = require('moment');
 
 
 require('./CommentForm.css');
@@ -31,7 +32,7 @@ var CommentForm = React.createClass({
     if (!msg || !author) {
       return;
     }
-    this.props.onCommentSubmit({author: author, msg: msg});
+    this.props.onCommentSubmit({author: author, msg: msg, datetime: moment().format('YYYY-MM-DD HH:mm:ss')});
     React.findDOMNode(this.refs.author).value = '';
     React.findDOMNode(this.refs.msg).value = '';
     return;
@@ -48,4 +49,3 @@ var CommentForm = React.createClass({
 });
 
 module.exports = CommentForm;
-

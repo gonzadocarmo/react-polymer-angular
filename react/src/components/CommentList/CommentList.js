@@ -2,6 +2,7 @@
 
 var React = require('react/addons');
 var CommentModel = require('components/Comment/Comment');
+var CommentTimeModel = require('components/CommentTime/CommentTime');
 
 require('./CommentList.css');
 
@@ -25,9 +26,12 @@ var CommentList = React.createClass({
   render: function () {
     var commentNodes = this.props.data.map(function (comment) {
       return (
-        <CommentModel author={comment.author} key={comment.id}>
-          {comment.msg}
-        </CommentModel>
+        <div>
+          <CommentModel author={comment.author} key={comment.id}>
+            {comment.msg}
+          </CommentModel>
+          <CommentTimeModel datetime={comment.datetime}></CommentTimeModel>
+        </div>
       );
     });
     return (
@@ -40,4 +44,3 @@ var CommentList = React.createClass({
 
 
 module.exports = CommentList;
-

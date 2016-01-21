@@ -16,6 +16,14 @@
 			"required": true,
 			"id": "msg",
 			"order": 1
+		},
+		"datetime": {
+			"name": "datetime",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "datetime",
+			"order": 2
 		}
 	}
 }

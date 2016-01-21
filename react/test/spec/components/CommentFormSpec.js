@@ -3,6 +3,7 @@
 describe('CommentForm', function () {
   var React = require('react/addons');
   var TestUtils = require('react/lib/ReactTestUtils');
+  var moment = require('moment');
   var CommentForm, component, CommentBox;
 
   beforeEach(function () {
@@ -25,7 +26,7 @@ describe('CommentForm', function () {
     root.refs.author.getDOMNode().value = 'Santiago';
     root.refs.msg.getDOMNode().value = 'Msg 1';
     TestUtils.Simulate.submit(form);
-    expect(CommentBox.handleCommentSubmit).toHaveBeenCalledWith({ author: 'Santiago', msg: 'Msg 1'});
+    expect(CommentBox.handleCommentSubmit).toHaveBeenCalledWith({ author: 'Santiago', msg: 'Msg 1', datetime: moment().format('YYYY-MM-DD HH:mm:ss')});
   });
 
   it('should not submit the form if msg or author fileds are empty', function (){
